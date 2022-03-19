@@ -14,9 +14,18 @@
   ],
 
   "rules": {
+    "no-console": "warn",
     "quotes": [1, "single"],
     "semi": "error",
     "indent": ["error", 2],
+    "space-before-blocks": "error",
+    "space-in-parens": "error",
+    "max-lines": ["error", { "max": 500 }],
+    "max-len": ["error", {
+      "code": 90,
+      "tabWidth": 2,
+      "ignoreComments": true
+    }],
     "prettier/prettier": "off"
   }
 }
