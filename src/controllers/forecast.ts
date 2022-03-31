@@ -1,8 +1,11 @@
-describe('Beach forecast functional tests', () => {
-  it('should return a forecast with just a few times', async () => {
-    const { body, status } = await global.testRequest.get('/forecast');
-    expect(status).toBe(200);
-    expect(body).toEqual([
+import { Controller, Get } from '@overnightjs/core';
+import { Request, Response } from 'express';
+
+@Controller('forecast') //este decorator cria uma rota /forecast na API
+export class ForecastController {
+  @Get('') // route forecast/
+  public getForecastForLoggedUser(_: Request, res: Response): void {
+    res.send([
       {
         time: '2020-04-26T00:00:00+00:00',
         forecast: [
@@ -42,5 +45,5 @@ describe('Beach forecast functional tests', () => {
         ],
       },
     ]);
-  });
-});
+  }
+}
